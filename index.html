@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banker's Algorithm Explorer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-10 text-center md:text-left flex flex-col md:flex-row justify-between items-center border-b border-slate-800 pb-6">
+            <div>
+                <h1 class="text-3xl font-light tracking-tight">Resource <span class="text-teal-500 font-semibold">Allocation</span> Analysis</h1>
+                <p class="text-slate-400 text-sm mt-1 uppercase tracking-widest">Banker's Safety Algorithm Engine</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-4">
+                <div class="flex flex-col">
+                    <label class="text-[10px] uppercase text-slate-500 mb-1">Processes</label>
+                    <input type="number" id="proc-count" value="5" min="1" max="10" class="matrix-input w-16 !text-lg">
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-[10px] uppercase text-slate-500 mb-1">Resources</label>
+                    <input type="number" id="res-count" value="3" min="1" max="10" class="matrix-input w-16 !text-lg">
+                </div>
+                <button onclick="initTables()" class="btn-teal px-6 py-2 rounded-md font-semibold mt-auto self-end">Build Grid</button>
+            </div>
+        </header>
+
+        <main id="app-content" class="hidden space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <div class="glass-card p-5 rounded-xl">
+                    <h3 class="text-sm font-semibold uppercase text-slate-400 mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-teal-500"></span> Current Allocation
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table id="alloc-table" class="w-full text-left"></table>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl">
+                    <h3 class="text-sm font-semibold uppercase text-slate-400 mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Maximum Demand
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table id="max-table" class="w-full text-left"></table>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl h-fit">
+                    <h3 class="text-sm font-semibold uppercase text-slate-400 mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-slate-300"></span> Total Resources
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table id="total-table" class="w-full text-left"></table>
+                    </div>
+                    <div class="mt-8">
+                        <button onclick="runSafetyCheck()" class="w-full btn-teal py-3 rounded-lg text-lg font-bold shadow-lg shadow-teal-900/20">
+                            Execute Safety Audit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results-area" class="hidden space-y-6">
+                <div id="status-banner" class="p-6 rounded-xl border flex items-center justify-between">
+                    <div>
+                        <h2 id="status-title" class="text-2xl font-bold"></h2>
+                        <p id="status-desc" class="text-slate-300 mt-1"></p>
+                    </div>
+                    <div id="status-icon" class="text-4xl"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card p-5 rounded-xl">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xs uppercase text-slate-500">Calculated Need Matrix</h3>
+                            <div id="initial-avail-display" class="text-xs font-mono text-emerald-400 bg-emerald-900/30 px-2 py-1 rounded"></div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table id="need-table" class="w-full"></table>
+                        </div>
+                    </div>
+                    <div class="glass-card p-5 rounded-xl">
+                        <h3 class="text-xs uppercase text-slate-500 mb-4">Execution Trace</h3>
+                        <div id="trace-log" class="space-y-2 max-h-[300px] overflow-y-auto pr-2"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-20 text-center text-slate-600 text-xs border-t border-slate-900 pt-6">
+            System Resource Analysis Tool &bull; Secure Allocation Protocol &bull; No External Dependencies
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

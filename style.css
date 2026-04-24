@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+    --slate-950: #020617;
+    --slate-900: #0f172a;
+    --teal-500: #14b8a6;
+    --rose-500: #f43f5e;
+    --emerald-500: #10b981;
+}
+
+body {
+    background-color: var(--slate-950);
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+
+.matrix-input {
+    background: var(--slate-900);
+    border: 1px solid #334155;
+    color: white;
+    text-align: center;
+    width: 50px;
+    padding: 4px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    transition: all 0.2s;
+}
+
+.matrix-input:focus {
+    outline: none;
+    border-color: var(--teal-500);
+    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-teal {
+    background: var(--teal-500);
+    color: white;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.btn-teal:hover {
+    background: #0d9488;
+}
+
+.btn-teal:active {
+    transform: scale(0.95);
+}
+
+.step-trace {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    border-left: 2px solid #334155;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
